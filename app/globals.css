@@ -11,7 +11,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.45 0.15 250);
+  --primary: oklch(0.55 0.22 340);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -47,7 +47,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.55 0.18 260);
+  --primary: oklch(0.60 0.25 340);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -131,19 +131,40 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-size: 0.875rem;
+    font-size: clamp(0.875rem, 0.8rem + 0.5vw, 1.125rem);
     line-height: 1.6;
     letter-spacing: -0.011em;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
+  h1 {
+    font-size: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 0.9rem + 2vw, 2.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-size: clamp(1.125rem, 0.85rem + 1.25vw, 2rem);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    font-size: clamp(1rem, 0.8rem + 0.75vw, 1.5rem);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
   h5,
   h6 {
-    letter-spacing: -0.025em;
-    line-height: 1.2;
+    font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1.25rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
   /* Enhanced smooth scrolling with offset for fixed nav */

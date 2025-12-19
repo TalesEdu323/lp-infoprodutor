@@ -11,6 +11,7 @@ import { FloatingNav } from "@/components/floating-nav"
 import { Footer } from "@/components/footer"
 import { Hero360 } from "@/components/hero-360"
 import { ProfitJourney } from "@/components/profit-journey"
+import { FinalCTA } from "@/components/final-cta"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -44,6 +45,7 @@ export default function Home() {
       <SalesAutomation id="automation" />
       <CommunityEngagement id="community" />
       <ProjectTimeline id="timeline" />
+      <FinalCTA />
       <Footer />
     </main>
   )
