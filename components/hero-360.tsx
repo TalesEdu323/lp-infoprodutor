@@ -60,7 +60,7 @@ export function Hero360() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-muted/50 border border-border rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
             >
               <Sparkles className="w-3.5 h-3.5 sm:w-4 text-primary" />
-              <span className="text-foreground">+50 infoprodutores já escalaram com a Taggo</span>
+              <span className="text-foreground">+50  infoprodutores já escalaram com a Taggo</span>
             </motion.div>
 
             <h1 className="font-bold text-balance mb-3 sm:mb-4">
