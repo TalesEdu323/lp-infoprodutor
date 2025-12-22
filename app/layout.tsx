@@ -11,21 +11,8 @@ export const metadata: Metadata = {
   description:
     "Apresentação completa do ecossistema integrado: produção de conteúdo, automação de vendas, comunidade ativa e estrutura mantida pela Taggo. Tudo conectado para maximizar seus resultados.",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/faveicon.png",
+    apple: "/faveicon.png",
   },
 }
 
