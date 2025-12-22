@@ -20,7 +20,7 @@ export function ProfitJourney() {
       description: "30+ reels automaticamente",
       color: "from-muted to-muted/50",
       iconColor: "text-foreground",
-      time: "Zero esforço",
+      time: "Esforço Moderado",
     },
     {
       icon: Target,
