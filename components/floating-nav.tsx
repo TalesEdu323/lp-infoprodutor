@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Home, TrendingUp, Network, Clapperboard, Zap, Users, Calendar } from "lucide-react"
+import { Home, TrendingUp, BookOpen, Network, Clapperboard, Zap, Users, Calendar } from "lucide-react"
 
 interface FloatingNavProps {
   activeSection: string
@@ -11,6 +11,7 @@ export function FloatingNav({ activeSection }: FloatingNavProps) {
   const navItems = [
     { id: "hero", icon: Home, label: "Início" },
     { id: "profit", icon: TrendingUp, label: "Jornada" },
+    { id: "learn", icon: BookOpen, label: "O que aprende" },
     { id: "hub", icon: Network, label: "Ecossistema" },
     { id: "production", icon: Clapperboard, label: "Produção" },
     { id: "automation", icon: Zap, label: "Automação" },

@@ -11,6 +11,7 @@ import { FloatingNav } from "@/components/floating-nav"
 import { Footer } from "@/components/footer"
 import { Hero360 } from "@/components/hero-360"
 import { ProfitJourney } from "@/components/profit-journey"
+import { WhatYouLearn } from "@/components/what-you-learn"
 import { FinalCTA } from "@/components/final-cta"
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "profit", "hub", "production", "automation", "community", "timeline"]
+      const sections = ["hero", "profit", "learn", "hub", "production", "automation", "community", "timeline"]
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section)
         if (element) {
@@ -40,6 +41,7 @@ export default function Home() {
       <FloatingNav activeSection={activeSection} />
       <Hero360 id="hero" />
       <ProfitJourney id="profit" />
+      <WhatYouLearn />
       <EcosystemHub id="hub" />
       <ContentProduction id="production" />
       <SalesAutomation id="automation" />
