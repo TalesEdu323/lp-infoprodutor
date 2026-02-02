@@ -10,8 +10,8 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mb-6 sm:mb-8 md:mb-10">
           <div className="p-3 sm:p-4 md:p-5">
             <Image
-              src="https://lp.taggo.com.br/wp-content/uploads/new-logo.png"
-              alt="Taggo Logo"
+              src="/taggo-logo.png"
+              alt="Taggo Software House"
               width={120}
               height={36}
               className="object-contain mb-2 sm:mb-3 w-20 sm:w-24 md:w-28 h-auto"

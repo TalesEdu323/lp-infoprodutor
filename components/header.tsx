@@ -8,8 +8,8 @@ export function Header() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8 h-14 sm:h-16 md:h-18 flex items-center justify-between">
         <div className="relative group cursor-pointer">
           <Image
-            src="https://lp.taggo.com.br/wp-content/uploads/new-logo.png"
-            alt="Taggo Logo"
+            src="/taggo-logo.png"
+            alt="Taggo Software House"
             width={130}
             height={40}
             className="object-contain transition-all duration-300 group-hover:scale-105 w-24 sm:w-28 md:w-32 h-auto"
