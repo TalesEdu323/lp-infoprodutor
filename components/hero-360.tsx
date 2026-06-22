@@ -3,10 +3,12 @@
 import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { useContactForm } from "@/components/contact-form-context"
 import { ArrowRight, Eye, MessageCircle, CalendarCheck } from "lucide-react"
 
 export function Hero360() {
   const prefersReducedMotion = useReducedMotion()
+  const { openContactForm } = useContactForm()
 
   const proof = [
     { icon: Eye, text: "Marca visível sem gravação" },
@@ -55,7 +57,12 @@ export function Hero360() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="flex flex-col sm:flex-row items-start gap-4 mb-12"
           >
-            <Button size="lg" className="group text-sm sm:text-base">
+            <Button
+              type="button"
+              size="lg"
+              className="group text-sm sm:text-base"
+              onClick={openContactForm}
+            >
               Agendar conversa gratuita
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform duration-200" />
             </Button>

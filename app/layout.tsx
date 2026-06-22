@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Fraunces, Inter_Tight } from "next/font/google"
 import "./globals.css"
-import { WhatsAppFormButton } from "@/components/whatsapp-form-button"
+import { ContactFormProvider } from "@/components/contact-form-context"
 import { cn } from "@/lib/utils"
 
 const fraunces = Fraunces({
@@ -50,8 +50,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={cn(fraunces.variable, interTight.variable, "font-sans antialiased")}>
-        {children}
-        <WhatsAppFormButton />
+        <ContactFormProvider>{children}</ContactFormProvider>
       </body>
     </html>
   )

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { useContactForm } from "@/components/contact-form-context"
 import { Check } from "lucide-react"
 
 const PLANS = [
@@ -49,6 +50,7 @@ const PLANS = [
 
 export function PricingPlans() {
   const prefersReducedMotion = useReducedMotion()
+  const { openContactForm } = useContactForm()
 
   return (
     <section id="plans" className="py-section-lg px-4 sm:px-6 md:px-8 bg-system">
@@ -104,12 +106,14 @@ export function PricingPlans() {
                 ))}
               </ul>
               <Button
-                variant={plan.highlighted ? "default" : "outline"}
+                type="button"
+                variant={plan.highlighted ? "default" : "ghost"}
                 className={
                   plan.highlighted
-                    ? ""
-                    : "border-system-foreground/20 text-system-foreground hover:bg-system-foreground/10 hover:text-system-foreground"
+                    ? "w-full"
+                    : "w-full border border-system-foreground/35 text-system-foreground hover:bg-system-foreground/10 hover:text-system-foreground"
                 }
+                onClick={openContactForm}
               >
                 Falar sobre o plano {plan.name}
               </Button>

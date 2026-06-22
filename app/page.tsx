@@ -44,7 +44,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background pb-[4.75rem] xl:pb-0">
       <Header />
       <FloatingNav activeSection={activeSection} />
       <Hero360 />
