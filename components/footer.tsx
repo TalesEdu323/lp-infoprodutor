@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Users } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-muted/30 border-t border-border py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-8">
+    <footer className="bg-muted border-t border-border py-section-sm px-4 sm:px-6 md:px-8">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6 mb-6 sm:mb-8 md:mb-10">
           <div className="p-3 sm:p-4 md:p-5 lg:col-span-2">
@@ -17,9 +17,8 @@ export function Footer() {
               height={36}
               className="object-contain mb-2 sm:mb-3 w-20 sm:w-24 md:w-28 h-auto"
             />
-            <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed">
-              Ecossistema completo para infoprodutores que querem escalar com
-              automação e qualidade.
+            <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-[1.6] text-pretty">
+              Marketing com autonomia para quem prefere focar no negócio — presença, atendimento e vendas, com a Taggo ao seu lado.
             </p>
           </div>
 

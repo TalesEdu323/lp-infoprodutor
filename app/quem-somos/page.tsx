@@ -12,9 +12,9 @@ import {
   Mail,
   Sparkles,
   Zap,
-  Award,
   Code2,
   CheckCircle2,
+  ArrowLeft,
 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -41,63 +41,69 @@ export const metadata: Metadata = {
   },
 }
 
+const cardClass =
+  "rounded-soft border border-border bg-card py-0 gap-0 shadow-none interactive-lift hover:border-primary/40"
+
 export default function QuemSomosPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-16">
+      <main className="pt-20 sm:pt-24 md:pt-28">
         {/* Hero */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              <Sparkles className="w-4 h-4" />
-              <span>Conheça nossa história</span>
+        <section className="px-4 sm:px-6 md:px-8 pb-section-sm md:pb-section-lg">
+          <div className="container mx-auto max-w-6xl">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" strokeWidth={1.75} />
+              Voltar para a página inicial
+            </Link>
+            <div className="max-w-3xl space-y-6">
+              <p className="label-mono text-primary">Sobre a Taggo</p>
+              <h1 className="font-display text-balance headline-tight">Quem somos</h1>
+              <p className="prose-width text-pretty text-lg sm:text-xl text-muted-foreground leading-[1.6]">
+                O ecossistema para infoprodutores é liderado por{" "}
+                <strong className="text-foreground font-medium">Eduardo Gomes</strong> e mantido pela{" "}
+                <strong className="text-foreground font-medium">Taggo Software House (TGS)</strong>, com foco em
+                produção de conteúdo, automação de vendas e comunidade.
+              </p>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              Quem somos
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              O ecossistema para infoprodutores é liderado por{" "}
-              <strong>Eduardo Gomes</strong> e mantido pela{" "}
-              <strong>Taggo Software House (TGS)</strong>, com foco em produção
-              de conteúdo, automação de vendas e comunidade.
-            </p>
           </div>
         </section>
 
-        {/* Missão e Visão */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="max-w-6xl mx-auto">
+        {/* Missão e visão */}
+        <section className="px-4 sm:px-6 md:px-8 pb-section-sm">
+          <div className="container mx-auto max-w-6xl">
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+              <Card className={`${cardClass} card-accent`}>
                 <CardContent className="p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Target className="w-6 h-6 text-primary" />
+                    <div className="w-11 h-11 rounded-soft bg-muted flex items-center justify-center border border-border shrink-0">
+                      <Target className="w-5 h-5 text-primary" strokeWidth={1.75} />
                     </div>
-                    <h2 className="text-2xl font-bold">Nossa Missão</h2>
+                    <h2 className="font-display text-xl sm:text-2xl headline-tight">Nossa missão</h2>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Oferecer um ecossistema 360° para infoprodutores: produção de
-                    conteúdo, automação de vendas, comunidade ativa e estrutura
-                    mantida pela <strong>Taggo Software House (TGS)</strong> para
+                  <p className="text-muted-foreground leading-[1.6] text-pretty">
+                    Oferecer um ecossistema 360° para infoprodutores: produção de conteúdo, automação de vendas,
+                    comunidade ativa e estrutura mantida pela{" "}
+                    <strong className="text-foreground font-medium">Taggo Software House (TGS)</strong> para
                     maximizar seus resultados.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+              <Card className={cardClass}>
                 <CardContent className="p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Rocket className="w-6 h-6 text-primary" />
+                    <div className="w-11 h-11 rounded-soft bg-muted flex items-center justify-center border border-border shrink-0">
+                      <Rocket className="w-5 h-5 text-primary" strokeWidth={1.75} />
                     </div>
-                    <h2 className="text-2xl font-bold">Nossa Visão</h2>
+                    <h2 className="font-display text-xl sm:text-2xl headline-tight">Nossa visão</h2>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Ser a referência em ecossistema integrado para infoprodutores
-                    no Brasil, reconhecida pela inovação da Taggo e pelos
-                    resultados entregues aos nossos clientes.
+                  <p className="text-muted-foreground leading-[1.6] text-pretty">
+                    Ser referência em ecossistema integrado para infoprodutores no Brasil, reconhecida pela inovação
+                    da Taggo e pelos resultados entregues aos nossos clientes.
                   </p>
                 </CardContent>
               </Card>
@@ -105,115 +111,109 @@ export default function QuemSomosPage() {
           </div>
         </section>
 
-        {/* A Taggo e o ecossistema */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-muted/30">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold">
+        {/* TGS */}
+        <section className="bg-muted px-4 sm:px-6 md:px-8 py-section-sm">
+          <div className="container mx-auto max-w-6xl">
+            <div className="heading-rule max-w-3xl mb-10 md:mb-12 space-y-4">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-balance headline-tight">
                 Taggo Software House (TGS)
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A <strong>Taggo Software House (TGS)</strong> atua no ecossistema
-                para infoprodutores com foco em inovação, eficiência e resultados
-                em produção de conteúdo e automação de vendas.
+              <p className="prose-width text-pretty text-lg text-muted-foreground leading-[1.6]">
+                A <strong className="text-foreground font-medium">Taggo Software House (TGS)</strong> atua no
+                ecossistema para infoprodutores com foco em inovação, eficiência e resultados em produção de conteúdo
+                e automação de vendas.
               </p>
             </div>
 
-            <div className="space-y-6">
-              <Card>
+            <div className="grid lg:grid-cols-2 gap-6">
+              <Card className={cardClass}>
                 <CardContent className="p-6 lg:p-8">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-primary" />
+                  <h3 className="font-display text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2 headline-tight">
+                    <Zap className="w-5 h-5 text-primary shrink-0" strokeWidth={1.75} />
                     O que fazemos
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    O ecossistema <strong>Taggo</strong> integra produção de
-                    conteúdo, automação de vendas, comunidade e cronograma em um
-                    único lugar. A <strong>Taggo Software House (TGS)</strong>{" "}
-                    desenvolve e mantém a estrutura para que infoprodutores
-                    escalem com qualidade e automação.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Com visão de longo prazo, a Taggo Software House (TGS) evolui
-                    o produto continuamente, orientada pelas necessidades reais
-                    de quem produz e vende infoprodutos no dia a dia.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6 lg:p-8">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    Por que o ecossistema existe
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    A <strong>Taggo Software House (TGS)</strong> nasceu da
-                    análise prática do cenário de infoprodutores e da
-                    identificação de lacunas em usabilidade, automação e
-                    integração.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    O ecossistema foi criado para reduzir fricções, modernizar
-                    rotinas e trazer mais eficiência para quem produz conteúdo,
-                    automatiza vendas e mantém uma comunidade ativa — tudo
-                    conectado e mantido pela Taggo Software House (TGS).
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Quem somos: Eduardo Gomes, Taggo Software House, TGS */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="max-w-5xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-bold">Quem somos</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Conheça Eduardo Gomes e a Taggo Software House (TGS) por trás do
-                ecossistema para infoprodutores.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
-              {/* Eduardo Gomes */}
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                <CardContent className="p-8 flex flex-col items-center text-center space-y-6">
-                  <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl bg-muted flex items-center justify-center">
-                    <Image
-                      src="/eduardo-gomes.png"
-                      alt="Eduardo Gomes - Fundador e CTO"
-                      width={160}
-                      height={160}
-                      className="w-full h-full object-cover"
-                      priority
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold">Fundador e CTO</h3>
-                    <a
-                      href="https://www.linkedin.com/in/eduardo-gomes-tgs/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-semibold text-primary hover:underline transition-colors inline-block"
-                    >
-                      Eduardo Gomes
-                    </a>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      Eduardo Gomes Taggo lidera a visão técnica e o
-                      desenvolvimento do ecossistema para infoprodutores. Foco em
-                      inovação, automação e soluções que transformam produção de
-                      conteúdo e vendas.
+                  <div className="space-y-4 text-muted-foreground leading-[1.6] text-pretty">
+                    <p>
+                      O ecossistema <strong className="text-foreground font-medium">Taggo</strong> integra produção
+                      de conteúdo, automação de vendas, comunidade e cronograma em um único lugar. A{" "}
+                      <strong className="text-foreground font-medium">Taggo Software House (TGS)</strong> desenvolve
+                      e mantém a estrutura para que infoprodutores escalem com qualidade.
+                    </p>
+                    <p>
+                      Com visão de longo prazo, a TGS evolui o produto continuamente, orientada pelas necessidades
+                      reais de quem produz e vende infoprodutos no dia a dia.
                     </p>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Taggo Software House (TGS) */}
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                <CardContent className="p-8 flex flex-col items-center text-center space-y-6">
-                  <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl bg-background flex items-center justify-center p-4">
+              <Card className={`${cardClass} card-accent`}>
+                <CardContent className="p-6 lg:p-8">
+                  <h3 className="font-display text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2 headline-tight">
+                    <Sparkles className="w-5 h-5 text-primary shrink-0" strokeWidth={1.75} />
+                    Por que o ecossistema existe
+                  </h3>
+                  <div className="space-y-4 text-muted-foreground leading-[1.6] text-pretty">
+                    <p>
+                      A <strong className="text-foreground font-medium">Taggo Software House (TGS)</strong> nasceu da
+                      análise prática do cenário de infoprodutores e da identificação de lacunas em usabilidade,
+                      automação e integração.
+                    </p>
+                    <p>
+                      O ecossistema foi criado para reduzir fricções, modernizar rotinas e trazer mais eficiência
+                      para quem produz conteúdo, automatiza vendas e mantém uma comunidade ativa.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Equipe */}
+        <section className="px-4 sm:px-6 md:px-8 py-section-sm">
+          <div className="container mx-auto max-w-6xl">
+            <div className="heading-rule max-w-3xl mb-10 md:mb-12 space-y-4">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-balance headline-tight">
+                Quem está por&nbsp;trás
+              </h2>
+              <p className="prose-width text-pretty text-lg text-muted-foreground leading-[1.6]">
+                Eduardo Gomes e a Taggo Software House (TGS) por trás do ecossistema para infoprodutores.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+              <Card className={cardClass}>
+                <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center">
+                  <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border border-border bg-muted mb-6">
+                    <Image
+                      src="/eduardo-gomes.png"
+                      alt="Eduardo Gomes — Fundador e CTO"
+                      width={144}
+                      height={144}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold mb-1">Fundador e CTO</h3>
+                  <a
+                    href="https://www.linkedin.com/in/eduardo-gomes-tgs/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-medium text-primary hover:underline transition-colors mb-3"
+                  >
+                    Eduardo Gomes
+                  </a>
+                  <p className="text-sm text-muted-foreground leading-[1.6] text-pretty">
+                    Lidera a visão técnica e o desenvolvimento do ecossistema. Foco em inovação, automação e
+                    soluções que transformam produção de conteúdo e vendas.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className={`${cardClass} card-accent`}>
+                <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center">
+                  <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border border-border bg-background flex items-center justify-center p-5 mb-6">
                     <Image
                       src="/taggo-logo.png"
                       alt="Taggo Software House (TGS)"
@@ -223,33 +223,25 @@ export default function QuemSomosPage() {
                       priority
                     />
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold">
-                      Taggo Software House (TGS)
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      Empresa brasileira de desenvolvimento de software
-                      especializada em ecossistema para infoprodutores: produção
-                      de conteúdo, automação de vendas, comunidade e estrutura
-                      integrada. A Taggo Software House (TGS) mantém e evolui a
-                      plataforma continuamente.
-                    </p>
-                  </div>
+                  <h3 className="font-display text-lg font-semibold mb-3">
+                    Taggo Software House (TGS)
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-[1.6] text-pretty">
+                    Empresa brasileira de desenvolvimento de software especializada em ecossistema para
+                    infoprodutores: produção de conteúdo, automação de vendas, comunidade e estrutura integrada.
+                  </p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* Credenciais - Eduardo Gomes */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-muted/30">
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="text-center space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-2">
-                <Award className="w-4 h-4" />
-                <span>Certificações e Credenciais</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold">
+        {/* Certificações */}
+        <section className="bg-muted px-4 sm:px-6 md:px-8 py-section-sm">
+          <div className="container mx-auto max-w-6xl">
+            <div className="max-w-3xl mx-auto text-center mb-10 space-y-4">
+              <p className="label-mono text-primary">Credenciais</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-balance headline-tight">
                 <a
                   href="https://www.linkedin.com/in/eduardo-gomes-tgs/"
                   target="_blank"
@@ -259,48 +251,34 @@ export default function QuemSomosPage() {
                   Eduardo Gomes
                 </a>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Desenvolvedor certificado pelo programa Google Developers e
-                membro ativo da comunidade GDG.
+              <p className="prose-width text-pretty text-lg text-muted-foreground leading-[1.6] mx-auto">
+                Desenvolvedor certificado pelo programa Google Developers e membro ativo da comunidade GDG.
               </p>
             </div>
 
-            <Card className="border-2 border-primary/20 bg-linear-to-br from-primary/5 to-primary/10">
-              <CardContent className="p-8">
-                <div className="flex flex-col md:flex-row gap-8 items-center">
-                  <div className="flex-1 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Code2 className="w-6 h-6 text-primary" />
-                      <h3 className="text-2xl font-bold">
-                        Desenvolvedor Certificado Google
-                      </h3>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Eduardo Gomes possui especialização em desenvolvimento
-                      com certificações oficiais do Google Developers Program,
-                      é membro ativo da comunidade GDG (Google Developers
-                      Group), participante do Google I/O e inovador certificado
-                      Google Cloud.
-                    </p>
-                    <div className="flex flex-wrap gap-3 pt-2">
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                        <CheckCircle2 className="w-4 h-4" />
-                        <span>Google Developer</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-medium">
-                        <CheckCircle2 className="w-4 h-4" />
-                        <span>GDG Member</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 text-sm font-medium">
-                        <CheckCircle2 className="w-4 h-4" />
-                        <span>Google I/O</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 text-sm font-medium">
-                        <CheckCircle2 className="w-4 h-4" />
-                        <span>Google Cloud</span>
-                      </div>
-                    </div>
-                  </div>
+            <Card className={`${cardClass} border-primary/30 max-w-4xl mx-auto`}>
+              <CardContent className="p-6 sm:p-8 lg:p-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <Code2 className="w-6 h-6 text-primary shrink-0" strokeWidth={1.75} />
+                  <h3 className="font-display text-xl sm:text-2xl font-semibold headline-tight">
+                    Desenvolvedor certificado Google
+                  </h3>
+                </div>
+                <p className="text-muted-foreground leading-[1.6] text-pretty mb-6">
+                  Eduardo Gomes possui especialização em desenvolvimento com certificações oficiais do Google
+                  Developers Program, é membro ativo da comunidade GDG (Google Developers Group), participante do
+                  Google I/O e inovador certificado Google Cloud.
+                </p>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  {["Google Developer", "GDG Member", "Google I/O", "Google Cloud"].map((badge) => (
+                    <span
+                      key={badge}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill bg-muted text-foreground text-sm font-medium border border-border"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" strokeWidth={1.75} />
+                      {badge}
+                    </span>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -308,127 +286,102 @@ export default function QuemSomosPage() {
         </section>
 
         {/* Valores */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="max-w-5xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-bold">Nossos valores</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Princípios que guiam o trabalho da Taggo Software House (TGS)
+        <section className="px-4 sm:px-6 md:px-8 py-section-sm">
+          <div className="container mx-auto max-w-6xl">
+            <div className="heading-rule max-w-3xl mb-10 md:mb-12 space-y-4">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-balance headline-tight">
+                Nossos valores
+              </h2>
+              <p className="prose-width text-pretty text-lg text-muted-foreground leading-[1.6]">
+                Princípios que guiam o trabalho da Taggo Software House (TGS).
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Rocket className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold">Inovação</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Sempre buscando melhorar o ecossistema e entregar mais valor
-                    ao infoprodutor.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Target className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold">Foco no Cliente</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Soluções pensadas para as necessidades reais dos
-                    infoprodutores.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Users className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold">Comunidade</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Ecossistema e comunidade ativa para crescimento conjunto.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Heart className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold">Compromisso</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Dedicação à evolução da plataforma e ao sucesso dos clientes.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {[
+                {
+                  icon: Rocket,
+                  title: "Inovação",
+                  desc: "Busca contínua por melhorias no ecossistema e mais valor ao infoprodutor.",
+                },
+                {
+                  icon: Target,
+                  title: "Foco no cliente",
+                  desc: "Soluções pensadas para as necessidades reais dos infoprodutores.",
+                },
+                {
+                  icon: Users,
+                  title: "Comunidade",
+                  desc: "Ecossistema e comunidade ativa para crescimento conjunto.",
+                },
+                {
+                  icon: Heart,
+                  title: "Compromisso",
+                  desc: "Dedicação à evolução da plataforma e ao sucesso dos clientes.",
+                },
+              ].map((item) => (
+                <Card key={item.title} className={cardClass}>
+                  <CardContent className="p-5 sm:p-6 flex flex-col items-center text-center h-full">
+                    <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center border border-border mb-4">
+                      <item.icon className="w-5 h-5 text-primary" strokeWidth={1.75} />
+                    </div>
+                    <h3 className="font-display text-base sm:text-lg font-semibold mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-[1.6] text-pretty">{item.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Contato */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-muted/30">
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-2 border-primary/20">
-              <CardContent className="p-8 lg:p-12">
-                <div className="text-center space-y-8">
-                  <div className="space-y-4">
-                    <h2 className="text-3xl sm:text-4xl font-bold">
-                      Entre em contato
-                    </h2>
-                    <p className="text-lg text-muted-foreground">
-                      Taggo Software House (TGS) pronta para ajudar seu
-                      ecossistema a crescer.
-                    </p>
-                  </div>
+        <section className="bg-muted px-4 sm:px-6 md:px-8 py-section-sm pb-section-lg">
+          <div className="container mx-auto max-w-6xl">
+            <Card className={`${cardClass} max-w-3xl mx-auto`}>
+              <CardContent className="p-6 sm:p-8 lg:p-10 text-center">
+                <h2 className="font-display text-2xl sm:text-3xl mb-3 text-balance headline-tight">
+                  Entre em&nbsp;contato
+                </h2>
+                <p className="prose-width text-pretty text-muted-foreground leading-[1.6] mx-auto mb-8">
+                  A Taggo Software House (TGS) está pronta para ajudar seu ecossistema a crescer.
+                </p>
 
-                  <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                    <div className="flex flex-col items-center gap-3 p-6 rounded-xl bg-background border border-border/50">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground mb-1">
-                          Email
-                        </p>
-                        <a
-                          href="mailto:contato@taggo.com.br"
-                          className="text-primary hover:underline font-medium"
-                        >
-                          contato@taggo.com.br
-                        </a>
-                      </div>
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto mb-8">
+                  <div className="flex flex-col items-center gap-3 p-5 rounded-soft bg-background border border-border">
+                    <div className="w-11 h-11 rounded-full bg-muted flex items-center justify-center border border-border">
+                      <Mail className="w-5 h-5 text-primary" strokeWidth={1.75} />
                     </div>
-
-                    <div className="flex flex-col items-center gap-3 p-6 rounded-xl bg-background border border-border/50">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <MapPin className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground mb-1">
-                          Localização
-                        </p>
-                        <p className="font-medium">
-                          R. Topázio, 534 - Sala 07, Jardim Nomura, Cotia - SP
-                        </p>
-                      </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-medium">Email</p>
+                      <a
+                        href="mailto:contato@taggo.com.br"
+                        className="text-primary hover:underline font-medium text-sm sm:text-base break-all"
+                      >
+                        contato@taggo.com.br
+                      </a>
                     </div>
                   </div>
 
-                  <p className="text-sm text-muted-foreground">
-                    <Link
-                      href="/"
-                      className="text-primary hover:underline font-medium"
-                    >
-                      Voltar ao ecossistema
-                    </Link>
-                  </p>
+                  <div className="flex flex-col items-center gap-3 p-5 rounded-soft bg-background border border-border">
+                    <div className="w-11 h-11 rounded-full bg-muted flex items-center justify-center border border-border">
+                      <MapPin className="w-5 h-5 text-primary" strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-medium">
+                        Localização
+                      </p>
+                      <p className="font-medium text-sm leading-[1.5] text-pretty">
+                        R. Topázio, 534 — Sala 07
+                        <br />
+                        Jardim Nomura, Cotia — SP
+                      </p>
+                    </div>
+                  </div>
                 </div>
+
+                <Link href="/" className="text-sm text-primary hover:underline font-medium">
+                  Voltar ao ecossistema
+                </Link>
               </CardContent>
             </Card>
           </div>

@@ -1,9 +1,11 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { CheckCircle2, Circle } from "lucide-react"
 
 export function ProjectTimeline() {
+  const prefersReducedMotion = useReducedMotion()
+
   const phases = [
     {
       phase: "Semana 1-2: Fundação",
@@ -63,77 +65,74 @@ export function ProjectTimeline() {
   ]
 
   return (
-    <section id="timeline" className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-8">
+    <section id="timeline" className="py-section-lg px-4 sm:px-6 md:px-8 bg-muted">
       <div className="container mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-6 sm:mb-8 md:mb-10"
+          transition={{ duration: 0.5 }}
+          className="heading-rule mb-10 sm:mb-12 max-w-3xl"
         >
-          <h2 className="font-bold mb-2 sm:mb-3 md:mb-4 text-balance">
+          <h2 className="font-display text-balance mb-3">
             Do Zero ao Lucro
-            <span className="block text-foreground mt-1 sm:mt-2 md:mt-3">Em 8 Semanas</span>
+            <span className="block text-foreground mt-2">Em 8 Semanas</span>
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-3xl mx-auto text-pretty">
+          <p className="text-sm md:text-base text-muted-foreground text-pretty">
             <strong className="text-foreground">Cronograma real e comprovado.</strong> Em 60 dias você terá um negócio funcionando, vendendo e gerando receita recorrente. Sem promessas vazias.
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-border" />
+        <div className="relative max-w-3xl">
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-primary/40" />
 
           {phases.map((phase, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative pl-12 sm:pl-20 pb-12 last:pb-0"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative pl-12 sm:pl-20 pb-10 last:pb-0"
             >
-              {/* Status Icon */}
               <div className="absolute left-2 sm:left-6 top-0 -translate-x-1/2">
                 {phase.status === "completed" ? (
-                  <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-foreground fill-foreground" />
+                  <CheckCircle2 className="w-6 h-6 md:w-8 md:h-8 text-foreground fill-foreground" />
                 ) : phase.status === "in-progress" ? (
-                  <Circle className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary fill-primary" />
+                  <Circle className="w-6 h-6 md:w-8 md:h-8 text-primary fill-primary" />
                 ) : (
-                  <Circle className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-muted-foreground" />
+                  <Circle className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground" />
                 )}
               </div>
 
-              {/* Content */}
-              <div className="bg-card rounded-lg p-3 sm:p-4 md:p-5 shadow-md hover:shadow-xl transition-shadow">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 sm:mb-3 gap-2">
+              <div className="bg-card rounded-sharp p-4 md:p-5 border border-border interactive-lift hover:border-primary/40">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-2">
                   <div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-0.5">{phase.phase}</h3>
-                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">{phase.duration}</p>
+                    <h3 className="font-display text-base md:text-xl font-semibold mb-0.5">{phase.phase}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground">{phase.duration}</p>
                   </div>
                   <div
-                    className={`px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base font-semibold self-start border ${
+                    className={`px-3 py-1 rounded-pill text-xs md:text-sm font-medium self-start border ${
                       phase.status === "completed"
                         ? "bg-muted text-foreground border-border"
                         : phase.status === "in-progress"
-                          ? "bg-primary/10 text-primary border-primary/20"
+                          ? "bg-primary/10 text-primary border-primary/30"
                           : "bg-muted/50 text-muted-foreground border-border"
                     }`}
                   >
                     {phase.status === "completed"
-                      ? "✓ Concluído"
+                      ? "Concluído"
                       : phase.status === "in-progress"
-                        ? "→ Em Andamento"
-                        : "○ Próximo"}
+                        ? "Em Andamento"
+                        : "Próximo"}
                   </div>
                 </div>
 
-                <ul className="space-y-1 sm:space-y-1.5 md:space-y-2">
+                <ul className="space-y-1.5 md:space-y-2">
                   {phase.tasks.map((task, taskIndex) => (
-                    <li key={taskIndex} className="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm">
+                    <li key={taskIndex} className="flex items-start gap-2 text-xs md:text-sm">
                       <CheckCircle2
-                        className={`w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 mt-0.5 flex-shrink-0 ${
+                        className={`w-3.5 h-3.5 md:w-4 md:h-4 mt-0.5 flex-shrink-0 ${
                           phase.status === "completed" ? "text-foreground" : "text-muted-foreground"
                         }`}
                       />
@@ -147,32 +146,32 @@ export function ProjectTimeline() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-6 sm:mt-8 md:mt-10 max-w-3xl mx-auto bg-gradient-to-r from-muted/30 to-muted/20 rounded-xl p-4 sm:p-5 md:p-6 text-center border border-border"
+          transition={{ duration: 0.5 }}
+          className="mt-10 sm:mt-12 max-w-3xl mx-auto bg-card rounded-soft p-5 sm:p-6 border border-border card-accent"
         >
-          <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4">Resultados Reais em 60 Dias</h3>
-          <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mb-4 sm:mb-5 max-w-2xl mx-auto">
+          <h3 className="font-display text-lg md:text-xl font-semibold mb-3">Resultados Reais em 60 Dias</h3>
+          <p className="text-xs md:text-sm text-muted-foreground mb-5 max-w-2xl">
             Baseado em dados reais de infoprodutores que implementaram o sistema completo
           </p>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1">1000+</div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Leads Qualificados</div>
+              <div className="text-xl md:text-2xl font-display font-semibold text-foreground mb-1">1000+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Leads Qualificados</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1">30+</div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Conteúdos/Mês</div>
+              <div className="text-xl md:text-2xl font-display font-semibold text-foreground mb-1">30+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Conteúdos/Mês</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1">R$ 50k+</div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Faturamento Mês 2</div>
+              <div className="text-xl md:text-2xl font-display font-semibold text-foreground mb-1">R$ 50k+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Faturamento Mês 2</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1">100%</div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Automatizado</div>
+              <div className="text-xl md:text-2xl font-display font-semibold text-foreground mb-1">100%</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Automatizado</div>
             </div>
           </div>
         </motion.div>

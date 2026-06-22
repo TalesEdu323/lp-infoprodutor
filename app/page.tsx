@@ -2,25 +2,33 @@
 
 import { useState, useEffect } from "react"
 import { Header } from "@/components/header"
-import { EcosystemHub } from "@/components/ecosystem-hub"
-import { ContentProduction } from "@/components/content-production"
-import { SalesAutomation } from "@/components/sales-automation"
-import { CommunityEngagement } from "@/components/community-engagement"
-import { ProjectTimeline } from "@/components/project-timeline"
 import { FloatingNav } from "@/components/floating-nav"
 import { Footer } from "@/components/footer"
 import { Hero360 } from "@/components/hero-360"
-import { ProfitJourney } from "@/components/profit-journey"
-import { WhatYouLearn } from "@/components/what-you-learn"
+import { ProblemPain, ProblemTurn } from "@/components/problem-turn"
+import { ResultsGain } from "@/components/results-gain"
+import { OnboardingOnce } from "@/components/onboarding-once"
+import { PricingPlans } from "@/components/pricing-plans"
+import { Objections } from "@/components/objections"
 import { FinalCTA } from "@/components/final-cta"
+
+const SECTIONS = [
+  "hero",
+  "problem",
+  "turn",
+  "results",
+  "onboarding",
+  "plans",
+  "objections",
+  "cta",
+] as const
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "profit", "learn", "hub", "production", "automation", "community", "timeline"]
-      const currentSection = sections.find((section) => {
+      const currentSection = SECTIONS.find((section) => {
         const element = document.getElementById(section)
         if (element) {
           const rect = element.getBoundingClientRect()
@@ -39,14 +47,13 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       <FloatingNav activeSection={activeSection} />
-      <Hero360 id="hero" />
-      <ProfitJourney id="profit" />
-      <WhatYouLearn />
-      <EcosystemHub id="hub" />
-      <ContentProduction id="production" />
-      <SalesAutomation id="automation" />
-      <CommunityEngagement id="community" />
-      <ProjectTimeline id="timeline" />
+      <Hero360 />
+      <ProblemPain />
+      <ProblemTurn />
+      <ResultsGain />
+      <OnboardingOnce />
+      <PricingPlans />
+      <Objections />
       <FinalCTA />
       <Footer />
     </main>
